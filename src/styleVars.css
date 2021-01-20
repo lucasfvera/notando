@@ -1,0 +1,11 @@
+:root {
+	--primary-color: hsl(0, 10%, 67%);
+	--secondary-color: hsl(334, 10%, 95%);
+	--secondary-color-clicked: hsl(334, 10%, 80%);
+	--tertiary-color: hsl(0, 34%, 57%);
+	--tertiary-color-watered: hsla(0, 34%, 57%, 0.39);
+	--tertiary-color-clicked: hsl(294, 31%, 65%);
+	--text-color-primary: #ffffff;
+	--text-color-secondary: hsl(294, 31%, 30%);
+	--text-color-error: rgb(206, 0, 0);
+}

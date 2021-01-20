@@ -1,0 +1,46 @@
+@import '../../styleVars.css';
+
+.emptyCardContainer {
+	background-color: var(--tertiary-color-watered);
+	height: 100px;
+	width: 100%;
+	max-width: 400px;
+    border-radius: 10px;
+    border: dashed var(--tertiary-color);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 1rem 0;
+	padding: 0 2rem;
+    color: var(--tertiary-color);
+    cursor: pointer;
+}
+
+.emptyCardContainer > * {
+	flex: 1;
+}
+
+.emptyCardContainer:hover{
+	background-color: var(--tertiary-color-clicked);
+}
+
+.delete-btn {
+	justify-self: end;
+	max-width: 32px;
+	height: 32px;
+	border: none;
+	border-radius: 8px;
+	background-color: var(--secondary-color);
+	cursor: pointer;
+	outline: none;
+	transition: background-color 1s ease;
+	font-size: 12pt;
+	font-weight: 700;
+	color: var(--text-color-secondary);
+}
+
+.delete-btn:active {
+	background-color: var(--secondary-color-clicked);
+	outline: none;
+	transition: background-color 0.1s ease;
+}

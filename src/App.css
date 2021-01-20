@@ -1,38 +1,73 @@
-.App {
-  text-align: center;
+@import './styleVars.css';
+
+/* -------------------------------- CLASES GENERALES -------------------------------- */
+
+ul {
+	margin: 0;
+	padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+* {
+	box-sizing: border-box;
+}
+/* -------------------------------- CLASES CONTAINERS -------------------------------- */
+
+.appContainer {
+	text-align: center;
+	margin: 0;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: repeat(3, 1fr);
+	max-height: 100vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.headerContainer {
+	padding: 2rem;
+	background-color: var(--primary-color);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.bodyContainer {
+	padding: 0 10%;
+	text-align: left;
+	height: 60vh;
+	overflow: hidden scroll;
+	background-color: var(--secondary-color);
+	width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+
+.footerContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--primary-color);
+	width: 100%;
+	padding: 0 10%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* -------------------------------- CLASES TEXTOS -------------------------------- */
+
+.header-text {
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 24pt;
+}
+
+.subheader-text {
+	font-weight: 500;
+	font-size: 14pt;
+}
+
+.regular-text {
+	font-weight: 500;
+	font-size: 12pt;
+}
+
+.bold-text {
+	font-weight: 700 !important;
 }

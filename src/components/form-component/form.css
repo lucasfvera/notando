@@ -1,0 +1,69 @@
+@import '../../styleVars.css';
+
+.form-container {
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	max-width: 400px;
+	padding-right: 10px;
+}
+.label-container {
+	position: relative;
+	box-sizing: border-box;
+	flex: 1;
+}
+
+.add-note-label {
+	margin: 0;
+	padding: 0 0 0.5rem 0;
+	text-align: left;
+	color: var(--text-color-primary);
+}
+
+.add-note-field {
+	border-radius: 8px;
+	border: none;
+	outline: none;
+	box-sizing: border-box;
+	padding: 0.5rem;
+	color: var(--tertiary-color);
+	font-weight: 700;
+	width: 100%;
+}
+
+.add-note-field:focus {
+	/* border: 2px solid var(--tertiary-color-clicked); */
+	box-shadow: 0 0 0 2px var(--tertiary-color-clicked);
+}
+
+.add-btn {
+	border: none;
+	/* padding: 0.5rem; */
+	border-radius: 8px;
+	background-color: var(--tertiary-color);
+	outline: none;
+	transition: background-color 1s ease;
+	cursor: pointer;
+	margin-left: 1rem;
+	font-size: 14pt;
+	align-self: flex-end;
+	height: 32px;
+	width: 32px;
+	text-align: center;
+	color: var(--text-color-primary);
+}
+
+.add-btn:active {
+	background-color: var(--tertiary-color-clicked);
+	transition: background-color 0.1s ease;
+	outline: none;
+}
+
+.error-msg-text {
+	top: 0;
+	right: 0;
+	position: absolute;
+	padding-left: 2rem;
+	color: var(--text-color-error) !important;
+}
