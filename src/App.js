@@ -53,9 +53,9 @@ function App() {
   };
 
   useEffect(() => {
-    console.log('antes de load notes',notes);
+    // console.log('antes de load notes',notes);
     loadNotes();
-    console.log('despues de load notes',notes);
+    // console.log('despues de load notes',notes);
     debugTest();
   }, []);
 
