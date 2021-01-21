@@ -56,7 +56,6 @@ function App() {
     // console.log('antes de load notes',notes);
     loadNotes();
     // console.log('despues de load notes',notes);
-    debugTest();
   }, []);
 
   //---agrego una nota
