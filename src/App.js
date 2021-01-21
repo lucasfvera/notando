@@ -26,18 +26,24 @@ function App() {
 
   const loadNotes = async () => {
     console.log("Adentro de loadNotes");
-    const nuevasNotas = [];
-    await notesDatabase.on("child_added", (element) => {
-      nuevasNotas.push({
-        id: element.key,
-        content: element.val().content,
-      });
-      // console.log('actulizando notas: ', nuevasNotas);
-      // setNotes(nuevasNotas)
+	const nuevasNotas = [];
+	const promise1 = new Promise((resolve,reject)=>{
+		notesDatabase.on("child_added", (element) => {
+		  nuevasNotas.push({
+			id: element.key,
+			content: element.val().content,
+		  });
+		resolve(nuevasNotas);
+	})
+    //   console.log('actulizando notas: ', nuevasNotas, loading);
+	//   setNotes(nuevasNotas,setLoading(false))
+	  
     });
-    setNotes(nuevasNotas, () => setLoading(false));
-    console.log("Saliendo de loadNotes");
-    // setLoading(false);
+    // setNotes(nuevasNotas, () => setLoading(false));
+	console.log("Saliendo de loadNotes");
+	await promise1.then(setNotes(nuevasNotas))
+	setLoading(false);
+	// return nuevasNotas;
   };
 
   //---DEBUG FUNCTION
@@ -47,9 +53,9 @@ function App() {
   };
 
   useEffect(() => {
-    // console.log('antes de load notes',notes);
-    // const n = loadNotes();
-    // console.log('despues de load notes',n);
+    console.log('antes de load notes',notes);
+    loadNotes();
+    console.log('despues de load notes',notes);
     debugTest();
   }, []);
 
@@ -57,26 +63,27 @@ function App() {
   const addNote = (content) => {
     notesDatabase.push().set({ content });
     notesDatabase.on("child_added", (el) => {
-      setNotes([...notes, { id: el.key, content }]);
+    // console.log(el.val());
+	// console.log(el.key);
+	// console.log(content);
+	  if(el.val().content===content){
+		  setNotes([...notes,{id:el.key,content}],console.log("Note added!"))
+	  }
     });
     // setNotes([...notes, { id: notes.length, content: content }]);
-    console.log("Nota agregada!");
   };
 
   //---borro una nota
   const removeNote = (id) => {
-    console.log("Id de la nota", id);
+    // console.log("Id de la nota", id);
     notesDatabase.child(id).remove();
     const newNotes = notes.filter((nota) => nota.id !== id);
     setNotes(newNotes);
   };
 
   if (loading) {
-    console.log("Entrando a loadNotes");
-
-    loadNotes();
-    console.log("Afuera de loadNotes");
-
+    // console.log("Entrando a loadNotes",loading);
+    // console.log("Afuera de loadNotes",loading);
     return <div>Loading</div>;
   } else {
     return (
