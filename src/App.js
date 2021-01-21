@@ -28,16 +28,18 @@ function App() {
     console.log("Adentro de loadNotes");
 	const nuevasNotas = [];
 	const promise1 = new Promise((resolve,reject)=>{
+		notesDatabase.on("value", (element) => {
+			if(!element.numChildren()) resolve(nuevasNotas);
+		})
 		notesDatabase.on("child_added", (element) => {
-		  nuevasNotas.push({
-			id: element.key,
-			content: element.val().content,
-		  });
-		resolve(nuevasNotas);
-	})
+		  	nuevasNotas.push({
+				id: element.key,
+				content: element.val().content,
+		  	});
+			resolve(nuevasNotas);
+		})
     //   console.log('actulizando notas: ', nuevasNotas, loading);
 	//   setNotes(nuevasNotas,setLoading(false))
-	  
     });
     // setNotes(nuevasNotas, () => setLoading(false));
 	console.log("Saliendo de loadNotes");

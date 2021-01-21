@@ -6,6 +6,7 @@ const Form = props => {
 	const [noteContent, setNoteContent] = useState('');
 	const [errorMsg, setErrorMsg] = useState('');
 	const handleChange = e => setNoteContent(e.target.value);
+	
 	const handleSubmit = e => {
 		e.preventDefault();
 		if (!noteContent) {
