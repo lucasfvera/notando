@@ -15,8 +15,7 @@ const Card = ({ note, removeNote, editNote }) => {
 	// console.log(note);
 	const [open, setOpen] = React.useState(false);
 	const [editedContent, setEditedContent] = React.useState(note.content);
-	const [newContentObj, setNewContentObj] = React.useState({})
-	
+	let newNote = {}	
   
 	const handleClose = () => {
 	  setEditedContent(note.content)
@@ -28,12 +27,12 @@ const Card = ({ note, removeNote, editNote }) => {
 	}
 
 	const handleSubmit = async ()=>{
-		const noteId = note.id
-		const obj = await new Promise((res,err)=>{
-			setNewContentObj({noteId: editedContent})
-			res("Async")
-		})
-		editNote(newContentObj);
+		newNote[note.id] = editedContent
+		// const obj = await new Promise((res,err)=>{
+		// 	({noteId: editedContent})
+		// 	res("Async")
+		// })
+		editNote(newNote);
 		setOpen(false);
 	}
 

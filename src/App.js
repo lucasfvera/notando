@@ -13,15 +13,11 @@ const { CardList, Form } = components;
 firebase.initializeApp(DB_FIREBASE);
 //esta referencia es a la base de datos en tiempo real
 const notesDatabase = firebase.database().ref("/notes/");
+console.log(notesDatabase);
 
 function App() {
   const [loading, setLoading] = useState(true);
-  const [notes, setNotes] = useState([
-    // { id: '0', content: 'item1' },
-    // { id: '1', content: 'item2' },
-    // { id: '2', content: 'item3' },
-    // { id: '3', content: 'item4' },
-  ]);
+  const [notes, setNotes] = useState([]);
   const [numberOfRenders, setNumberOfRenders] = useState(0);
 
   const loadNotes = async () => {
@@ -96,10 +92,11 @@ function App() {
 
   //---EDITAR NOTA
   const editNote = (newContent)=>{
-    // console.log(id); 
-    console.log(newContent);
     notesDatabase.update(newContent)
+    setNumberOfRenders(numberOfRenders + 1)
   }
+
+
 
   if (loading) {
     return <div>Loading</div>;
