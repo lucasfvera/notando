@@ -11,7 +11,6 @@
 	justify-content: center;
 	margin: 1rem 0;
 	padding: 0 2rem;
-	text-transform: capitalize;
 	color: var(--secondary-color);
 }
 
@@ -19,7 +18,11 @@
 	flex: 1;
 }
 
-.delete-btn {
+.action-btn {
+	margin-right: 0.3rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	justify-self: end;
 	max-width: 32px;
 	height: 32px;
@@ -29,7 +32,7 @@
 	cursor: pointer;
 	outline: none;
 	transition: background-color 1s ease;
-	font-size: 12pt;
+	/* font-size: 10pt; */
 	font-weight: 700;
 	color: var(--text-color-secondary);
 }

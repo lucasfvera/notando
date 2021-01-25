@@ -39,7 +39,7 @@
 
 .add-btn {
 	border: none;
-	/* padding: 0.5rem; */
+	padding: 0.25rem;
 	border-radius: 8px;
 	background-color: var(--tertiary-color);
 	outline: none;
@@ -48,8 +48,10 @@
 	margin-left: 1rem;
 	font-size: 14pt;
 	align-self: flex-end;
-	height: 32px;
-	width: 32px;
+	display: flex;
+	align-content: center;
+	justify-content: center;
+
 	text-align: center;
 	color: var(--text-color-primary);
 }

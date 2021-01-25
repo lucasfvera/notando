@@ -2,8 +2,7 @@ import React from 'react'
 import {Card, EmptyCard} from '../index.js'
 import './cardList.css'
 
-const CardList = props => {
-    const {notes, removeNote} = props;
+const CardList = ({notes, removeNote, editNote}) => {
     return (
         <ul className='cardListContainer'>
             {
@@ -13,7 +12,7 @@ const CardList = props => {
 
                     notes.map(e => (
                         // console.log('mapeo de notes',e)
-                        <Card key={e.id} note={e} removeNote={removeNote} />
+                        <Card key={e.id} note={e} removeNote={removeNote} editNote={editNote}/>
                 ))
             }
             

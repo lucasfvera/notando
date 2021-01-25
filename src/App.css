@@ -71,3 +71,13 @@ li {
 .bold-text {
 	font-weight: 700 !important;
 }
+
+.primary-text-color{
+	color: var(--text-color-primary)
+}
+.secondary-text-color{
+	color: var(--text-color-secondary)
+}
+.tertiary-text-color{
+	color: var(--text-color-tertiary)
+}

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './form.css';
+import AddIcon from '@material-ui/icons/Add';
 
 const Form = props => {
 	const { addNote } = props;
@@ -31,7 +32,7 @@ const Form = props => {
 				></input>
 			</label>
 			<button type='submit' className='add-btn'>
-				+
+				<AddIcon/>
 			</button>
 		</form>
 	);

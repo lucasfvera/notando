@@ -25,7 +25,7 @@ function App() {
   const [numberOfRenders, setNumberOfRenders] = useState(0);
 
   const loadNotes = async () => {
-    console.log("Adentro de loadNotes");
+    // console.log("Adentro de loadNotes");
 	const nuevasNotas = [];
 	const promise1 = new Promise((resolve,reject)=>{
 		notesDatabase.on("value", (element) => {
@@ -34,39 +34,35 @@ function App() {
 		notesDatabase.on("child_added", (element) => {
 		  	nuevasNotas.push({
 				id: element.key,
-				content: element.val().content,
+				content: element.val(),
 		  	});
 			resolve(nuevasNotas);
 		})
     //   console.log('actulizando notas: ', nuevasNotas, loading);
-	//   setNotes(nuevasNotas,setLoading(false))
+	  //   setNotes(nuevasNotas,setLoading(false))
     });
     // setNotes(nuevasNotas, () => setLoading(false));
-	console.log("Saliendo de loadNotes");
+	// console.log("Saliendo de loadNotes");
 	await promise1.then(setNotes(nuevasNotas))
 	setLoading(false);
 	// return nuevasNotas;
   };
 
-  //---DEBUG FUNCTION
-  const debugTest = () => {
-    console.log("This is a DEBUG number: ", numberOfRenders);
-    setNumberOfRenders(numberOfRenders + 1);
-  };
 
   useEffect(() => {
     // console.log('antes de load notes',notes);
     loadNotes();
+    console.log("Effect completed!");
     // console.log('despues de load notes',notes);
-  }, []);
+  }, [numberOfRenders]);
 
   //---agrego una nota
-  const addNote = (content) => {
+  const addNote2 = (content) => {
     notesDatabase.push().set({ content });
     notesDatabase.on("child_added", (el) => {
     // console.log(el.val());
-	// console.log(el.key);
-	// console.log(content);
+	  // console.log(el.key);
+	  // console.log(content);
 	  if(el.val().content===content){
 		  setNotes([...notes,{id:el.key,content}],console.log("Note added!"))
 	  }
@@ -74,31 +70,52 @@ function App() {
     // setNotes([...notes, { id: notes.length, content: content }]);
   };
 
+  //---PRUEBA ADD NOTE
+  const addNote = (content) => {
+    notesDatabase.push(content)
+    // cambio este estado para que vuelva a ejecutarse el useEffect y q cargue de nuevo las notas de la base de datos
+    setNumberOfRenders(numberOfRenders + 1)
+
+    
+      // .then(e=>
+      //   {
+      //     // console.log(e.path.pieces_[1]) -> acá tengo la id de la nota recien agregada
+      //     setNotes(prevNotes => [...prevNotes,{id:e.path.pieces_[1],content}],console.log("Note added!"))
+      //   })
+  }
+
   //---borro una nota
   const removeNote = (id) => {
-    // console.log("Id de la nota", id);
     notesDatabase.child(id).remove();
-    const newNotes = notes.filter((nota) => nota.id !== id);
-    setNotes(newNotes);
+    //Hago q se ejecute devuelta el loadNotes()
+    setNumberOfRenders(numberOfRenders + 1)
+
+    // const newNotes = notes.filter((nota) => nota.id !== id);
+    // setNotes(newNotes);
   };
 
+  //---EDITAR NOTA
+  const editNote = (newContent)=>{
+    // console.log(id); 
+    console.log(newContent);
+    notesDatabase.update(newContent)
+  }
+
   if (loading) {
-    // console.log("Entrando a loadNotes",loading);
-    // console.log("Afuera de loadNotes",loading);
     return <div>Loading</div>;
   } else {
     return (
       <div className="appContainer">
         <div className="headerContainer">
-          <h1 className="header-text">Notando</h1>
-          <h3 className="subheader-text">
+          <h1 className="header-text primary-text-color">Notando</h1>
+          <h3 className="subheader-text primary-text-color">
             Crea notas y mantené al día tus listas
           </h3>
         </div>
 
         <div className="bodyContainer">
           <h3 className="subheader-text">Tus notas</h3>
-          <CardList notes={notes} removeNote={removeNote} />
+          <CardList notes={notes} removeNote={removeNote} editNote={editNote}/>
         </div>
 
         <div className="footerContainer">
