@@ -22,8 +22,8 @@ li {
 	margin: 0;
 	display: grid;
 	grid-template-columns: 1fr;
-	grid-template-rows: repeat(3, 1fr);
-	max-height: 100vh;
+	grid-template-rows: 1fr 4fr 1fr;
+	height: 100vh;
 }
 
 .headerContainer {
@@ -34,7 +34,7 @@ li {
 .bodyContainer {
 	padding: 0 10%;
 	text-align: left;
-	height: 60vh;
+	max-height: 60vh;
 	overflow: hidden scroll;
 	background-color: var(--secondary-color);
 	width: 100%;
@@ -47,7 +47,7 @@ li {
 	align-items: center;
 	background-color: var(--primary-color);
 	width: 100%;
-	padding: 0 10%;
+	padding: 1rem 10%;
 }
 
 /* -------------------------------- CLASES TEXTOS -------------------------------- */
