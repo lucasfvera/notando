@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, createContext } from "react";
 import "./App.css";
 import * as components from "./components/index.js";
 import firebase from "firebase/app";
 import "firebase/database";
 import { DB_FIREBASE } from "./config/config.js";
+import {UserContextProvider} from "./components/index.js";
 
 //instalo firebase con "npm i firebase"
 
-const { CardList, Form } = components;
+const { CardList, Form, LoginForm, Home } = components;
 
 //---inicio la base de datos y guardo la referencia en database
 firebase.initializeApp(DB_FIREBASE);
 //esta referencia es a la base de datos en tiempo real
 const notesDatabase = firebase.database().ref("/notes/");
-console.log(notesDatabase);
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -21,7 +21,6 @@ function App() {
   const [numberOfRenders, setNumberOfRenders] = useState(0);
 
   const loadNotes = async () => {
-    // console.log("Adentro de loadNotes");
 	const nuevasNotas = [];
 	const promise1 = new Promise((resolve,reject)=>{
 		notesDatabase.on("value", (element) => {
@@ -34,37 +33,30 @@ function App() {
 		  	});
 			resolve(nuevasNotas);
 		})
-    //   console.log('actulizando notas: ', nuevasNotas, loading);
-	  //   setNotes(nuevasNotas,setLoading(false))
     });
-    // setNotes(nuevasNotas, () => setLoading(false));
-	// console.log("Saliendo de loadNotes");
-	await promise1.then(setNotes(nuevasNotas))
+	await promise1.then(res=>setNotes(res))
 	setLoading(false);
-	// return nuevasNotas;
   };
 
 
   useEffect(() => {
-    // console.log('antes de load notes',notes);
     loadNotes();
     console.log("Effect completed!");
-    // console.log('despues de load notes',notes);
   }, [numberOfRenders]);
 
-  //---agrego una nota
-  const addNote2 = (content) => {
-    notesDatabase.push().set({ content });
-    notesDatabase.on("child_added", (el) => {
-    // console.log(el.val());
-	  // console.log(el.key);
-	  // console.log(content);
-	  if(el.val().content===content){
-		  setNotes([...notes,{id:el.key,content}],console.log("Note added!"))
-	  }
-    });
-    // setNotes([...notes, { id: notes.length, content: content }]);
-  };
+  // //---agrego una nota ---DEPRECATED
+  // const addNote2 = (content) => {
+  //   notesDatabase.push().set({ content });
+  //   notesDatabase.on("child_added", (el) => {
+  //   // console.log(el.val());
+	//   // console.log(el.key);
+	//   // console.log(content);
+	//   if(el.val().content===content){
+	// 	  setNotes([...notes,{id:el.key,content}],console.log("Note added!"))
+	//   }
+  //   });
+  //   // setNotes([...notes, { id: notes.length, content: content }]);
+  // };
 
   //---PRUEBA ADD NOTE
   const addNote = (content) => {
@@ -82,12 +74,12 @@ function App() {
 
   //---borro una nota
   const removeNote = (id) => {
-    notesDatabase.child(id).remove();
-    //Hago q se ejecute devuelta el loadNotes()
-    setNumberOfRenders(numberOfRenders + 1)
+    if(window.confirm("¿Eliminar la nota?")){
 
-    // const newNotes = notes.filter((nota) => nota.id !== id);
-    // setNotes(newNotes);
+      notesDatabase.child(id).remove();
+      //Hago q se ejecute devuelta el loadNotes()
+      setNumberOfRenders(numberOfRenders + 1)
+    }
   };
 
   //---EDITAR NOTA
@@ -99,26 +91,23 @@ function App() {
 
 
   if (loading) {
-    return <div>Loading</div>;
+    return <div style={{textAlign: 'center'}}>Cargando</div>;
   } else {
     return (
-      <div className="appContainer">
-        <div className="headerContainer">
-          <h1 className="header-text primary-text-color">Notando</h1>
-          <h3 className="subheader-text primary-text-color">
-            Crea notas y mantené al día tus listas
-          </h3>
-        </div>
+      <UserContextProvider>
+        <div className="appContainer">
+          <div className="headerContainer">
+            <h1 className="header-text primary-text-color">Notando</h1>
+            <h4 className="subheader-text primary-text-color">
+              Crea notas y mantené al día tus listas
+            </h4>
+          </div>
 
-        <div className="bodyContainer">
-          <h3 className="subheader-text">Tus notas</h3>
-          <CardList notes={notes} removeNote={removeNote} editNote={editNote}/>
+          <LoginForm />
+          <Home />
         </div>
+      </UserContextProvider>
 
-        <div className="footerContainer">
-          <Form addNote={addNote} />
-        </div>
-      </div>
     );
   }
 }
