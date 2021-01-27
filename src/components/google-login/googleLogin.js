@@ -10,11 +10,11 @@ const GoogleBtnLogin = ()=>{
   function onSignIn(googleUser) {
       var profile = googleUser.getBasicProfile();
       setUser({name: profile.getName(), email: profile.getEmail(), isLogged: true });
-      console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-      console.log('Name: ' + profile.getName());
-      console.log('Image URL: ' + profile.getImageUrl());
-      console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-      console.log("Todo el obj de usuario: ",googleUser);
+      // console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+      // console.log('Name: ' + profile.getName());
+      // console.log('Image URL: ' + profile.getImageUrl());
+      // console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+      // console.log("Todo el obj de usuario: ",googleUser);
     }
 
     return <GoogleLogin 

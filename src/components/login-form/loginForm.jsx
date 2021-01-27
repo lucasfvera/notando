@@ -1,7 +1,5 @@
 import React, {useContext} from 'react'
-import {GoogleBtnLogin} from '../index'
-import {GoogleBtnLogout} from '../index'
-import { UserContext } from "../user-context/userContext";
+import {GoogleBtnLogin,GoogleBtnLogout,UserContext} from '../index'
 
 const LoginForm = () => {
     const [user, setUser] = useContext(UserContext);

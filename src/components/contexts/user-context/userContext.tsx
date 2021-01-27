@@ -6,15 +6,13 @@ type User = {
     isLogged: boolean;
 }
 
-type valueContext = [User, Function]
-
 const anonUser : User = {
     name: "Invitado",
     email: "",
     isLogged: false
 }
 
-export const UserContext = createContext<valueContext>([anonUser,()=>{}]); //add a default value when no provider is in the tree
+export const UserContext = createContext<[User,Function]>([anonUser,()=>{}]); //add a default value when no provider is in the tree
 
 export const UserContextProvider: FunctionComponent<FunctionComponent> = ({children})=>{
     const [user, setUser] = useState(anonUser)

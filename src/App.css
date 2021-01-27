@@ -22,8 +22,10 @@ li {
 	margin: 0;
 	display: grid;
 	grid-template-columns: 1fr;
-	grid-template-rows: 1fr 4fr 1fr;
+	grid-template-rows: 1fr 4fr;
 	height: 100vh;
+	overflow: hidden;
+	position: relative;
 }
 
 .headerContainer {
@@ -31,7 +33,13 @@ li {
 	background-color: var(--primary-color);
 }
 
-.bodyContainer {
+.bodyContainer{
+	display: flex;
+	flex-direction: column;
+}
+
+.centerContainer {
+	flex: 1;
 	padding: 0 10%;
 	text-align: left;
 	max-height: 60vh;
@@ -42,7 +50,10 @@ li {
 
 
 .footerContainer {
+	/* flex: 0.2; */
+	bottom:0;
 	display: flex;
+	position: fixed;
 	justify-content: center;
 	align-items: center;
 	background-color: var(--primary-color);
