@@ -109,7 +109,6 @@ function App() {
           <h3 className="subheader-text primary-text-color">
             Crea notas y mantené al día tus listas
           </h3>
-          <h1>Chau</h1>
         </div>
 
         <div className="bodyContainer">
