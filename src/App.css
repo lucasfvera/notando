@@ -29,8 +29,10 @@ li {
 }
 
 .headerContainer {
-	padding: 2rem;
+	display: flex;
+	padding: 1rem;
 	background-color: var(--primary-color);
+	position: relative;
 }
 
 .bodyContainer{
@@ -42,7 +44,7 @@ li {
 	flex: 1;
 	padding: 0 10%;
 	text-align: left;
-	max-height: 60vh;
+	max-height: 64vh;
 	overflow: hidden scroll;
 	background-color: var(--secondary-color);
 	width: 100%;
@@ -91,4 +93,15 @@ li {
 }
 .tertiary-text-color{
 	color: var(--text-color-tertiary)
+}
+
+
+/* -------------------------------- MEDIA QUERIES -------------------------------- */
+
+
+@media (max-width: 900px){
+    .headerContainer {
+		position: relative;
+		flex-direction: column;
+	}
 }

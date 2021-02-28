@@ -1,4 +1,4 @@
-import React, { useEffect, useState, createContext, useContext } from "react";
+import React, { useContext } from "react";
 import {
   UserContextProvider,
   LoadingContext,
@@ -9,17 +9,11 @@ import {
 
 function App() {
   const [loading, setLoading] = useContext(LoadingContext);
-
-
-  if (false) {
-    return <div style={{ textAlign: "center" }}>Cargando</div>;
-  } else {
     return (
       <UserContextProvider>
           <Body />
       </UserContextProvider>
     );
-  }
 }
 
 export default App;

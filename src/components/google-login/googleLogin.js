@@ -17,7 +17,8 @@ const GoogleBtnLogin = ()=>{
       // console.log("Todo el obj de usuario: ",googleUser);
     }
 
-    return <GoogleLogin 
+    return <GoogleLogin
+    // render={props=>{return <button onClick={()=>console.log(this)} >Hola</button>}}
     clientId={clientId}
     buttonText={'Entrar con Google'}
     onSuccess={(e)=>onSignIn(e)}
