@@ -105,7 +105,6 @@ function App() {
       <div className="appContainer">
         <div className="headerContainer">
           <h1 className="header-text primary-text-color">Notando</h1>
-	    <h1>Hola</h1>
           <h3 className="subheader-text primary-text-color">
             Crea notas y mantené al día tus listas
           </h3>
