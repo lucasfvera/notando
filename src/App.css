@@ -22,19 +22,29 @@ li {
 	margin: 0;
 	display: grid;
 	grid-template-columns: 1fr;
-	grid-template-rows: 1fr 4fr 1fr;
+	grid-template-rows: 1fr 4fr;
 	height: 100vh;
+	overflow: hidden;
+	position: relative;
 }
 
 .headerContainer {
-	padding: 2rem;
+	display: flex;
+	padding: 1rem;
 	background-color: var(--primary-color);
+	position: relative;
 }
 
-.bodyContainer {
+.bodyContainer{
+	display: flex;
+	flex-direction: column;
+}
+
+.centerContainer {
+	flex: 1;
 	padding: 0 10%;
 	text-align: left;
-	max-height: 60vh;
+	max-height: 64vh;
 	overflow: hidden scroll;
 	background-color: var(--secondary-color);
 	width: 100%;
@@ -42,7 +52,10 @@ li {
 
 
 .footerContainer {
+	/* flex: 0.2; */
+	bottom:0;
 	display: flex;
+	position: fixed;
 	justify-content: center;
 	align-items: center;
 	background-color: var(--primary-color);
@@ -80,4 +93,15 @@ li {
 }
 .tertiary-text-color{
 	color: var(--text-color-tertiary)
+}
+
+
+/* -------------------------------- MEDIA QUERIES -------------------------------- */
+
+
+@media (max-width: 900px){
+    .headerContainer {
+		position: relative;
+		flex-direction: column;
+	}
 }

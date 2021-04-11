@@ -43,7 +43,7 @@ const Card = ({ note, removeNote, editNote }) => {
 				<EditIcon fontSize='small' />
 			</button>
 			<Dialog open={open} onClose={()=>handleClose} aria-labelledby="form-dialog-title">
-				<DialogTitle id="form-dialog-title">Editing note</DialogTitle>
+				<DialogTitle id="form-dialog-title">Editá tu nota</DialogTitle>
 				<DialogContent>
 					{/* <DialogContentText>
 					To subscribe to this website, please enter your email address here. We will send updates
@@ -62,10 +62,10 @@ const Card = ({ note, removeNote, editNote }) => {
 				</DialogContent>
 				<DialogActions>
 					<Button onClick={handleClose} color="secondary">
-					Cancel
+					Cancelar
 					</Button>
 					<Button onClick={handleSubmit} variant='contained' disableElevation color="primary">
-					Edit
+					Editar
 					</Button>
 				</DialogActions>
 			</Dialog>

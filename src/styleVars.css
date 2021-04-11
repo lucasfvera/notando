@@ -2,10 +2,10 @@
 	--primary-color: hsl(248, 39%, 49%);
 	--secondary-color: hsl(248, 5%, 95%);
 	--secondary-color-clicked: hsl(248, 5%, 85%);
-	--tertiary-color: hsl(288, 39%, 55%);
+	--tertiary-color: hsl(288, 45%, 55%);
 	--tertiary-color-watered: hsla(288, 39%, 55%, 0.39);
 	--tertiary-color-clicked:  hsl(288, 39%, 75%);
-	--text-color-primary: #ffffff;
+	--text-color-primary: #f3f3f3;
 	--text-color-secondary: hsl(294, 31%, 30%);
 	--text-color-error: rgb(206, 0, 0);
 }
