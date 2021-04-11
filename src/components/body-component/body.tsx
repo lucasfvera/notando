@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { UserContext, LoginForm, Home } from "../index";
+import { FeatureController, FeatureToggle ,UserContext, LoginForm, Home } from "../index";
 import "../../App.css";
 
 export const Body: React.FunctionComponent = () => {
@@ -7,6 +7,11 @@ export const Body: React.FunctionComponent = () => {
 
   return (
     <div className="appContainer">
+      <FeatureController name='test'>
+        <div style={{position: 'absolute',bottom: 0,right: 0 ,zIndex: 9, backgroundColor: 'whitesmoke',padding: '8px',margin: '4px',borderRadius: '4px'}}>Test feature flags
+        <FeatureToggle />
+        </div>
+      </FeatureController>
       {user.isLogged ? (
         <>
           <div className="headerContainer">
@@ -16,7 +21,7 @@ export const Body: React.FunctionComponent = () => {
                 Crea notas y mantené al día tus listas
               </h4>
             </div>
-            <LoginForm isNavBar />
+            <LoginForm isNavBar/>
           </div>
         </>
       ) : null}

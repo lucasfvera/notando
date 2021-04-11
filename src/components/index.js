@@ -14,6 +14,12 @@ export {
   LoadingContext,
   LoadingContextProvider,
 } from "../contexts/loading-context/loadingContext";
-export { Home } from "./home-component/home";
+export {
+  FeatureFlagsContext,
+  FeatureFlagsContextProvider,
+} from "../contexts/feature-flags-context/featureFlagsContext";
+export { Home } from "./home-component";
 export { Body } from "./body-component";
 export { UserLoginForm } from "./login-form-user-component";
+export { FeatureController } from "./feature-controller-component";
+export { FeatureToggle } from './features-toggle-component'

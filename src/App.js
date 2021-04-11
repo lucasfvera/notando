@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
+//importing feature flags context
 import {
   UserContextProvider,
+  FeatureFlagsContextProvider,
   LoadingContext,
   Body
 } from "./components";
@@ -10,9 +12,11 @@ import {
 function App() {
   const [loading, setLoading] = useContext(LoadingContext);
     return (
-      <UserContextProvider>
-          <Body />
-      </UserContextProvider>
+      <FeatureFlagsContextProvider>
+        <UserContextProvider>
+            <Body />
+        </UserContextProvider>
+      </FeatureFlagsContextProvider>
     );
 }
 
