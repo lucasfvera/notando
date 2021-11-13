@@ -3,12 +3,12 @@ import firebase from "firebase/app";
 import "firebase/database";
 import { DB_FIREBASE } from "../../config/config.js";
 
+//types
+import { Note } from '@mytypes/Note'
+
 import { UserContext, LoadingContext, CardList, Form } from '../index'
 
-type Note = {
-    id: string;
-    content: string
-}
+
 
 
 //---inicio la base de datos y guardo la referencia en database
@@ -16,11 +16,11 @@ firebase.initializeApp(DB_FIREBASE);
 //esta referencia es a la base de datos en tiempo real
 const notesDatabase = firebase.database().ref("/notes/");
 
-export const Home: React.FunctionComponent = ()=>{
+const Home: React.FunctionComponent = ()=>{
     const [user, setUser] = useContext(UserContext);
     const [loading, setLoading] = useContext(LoadingContext);
 
-    const [numberOfRenders, setNumberOfRenders] = useState(0);
+    const [numberOfRenders, setNumberOfRenders] = useState<number>(0);
     const [notes, setNotes] = useState<Note[]>([]);
 
 
@@ -107,5 +107,4 @@ export const Home: React.FunctionComponent = ()=>{
     )
 }
 
-
-
+export default Home;

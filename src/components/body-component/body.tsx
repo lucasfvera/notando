@@ -1,15 +1,34 @@
-import React, { useContext } from "react";
-import { FeatureController, FeatureToggle ,UserContext, LoginForm, Home } from "../index";
+import React, { useContext, lazy, Suspense } from "react";
+import { FeatureController, FeatureToggle ,UserContext, LoginForm } from "../index";
 import "../../App.css";
+const FeatureController2 = lazy(()=>import("../feature-controller-component"));
+const Home = lazy(()=>import("../home-component"));
 
 export const Body: React.FunctionComponent = () => {
   const [user, setUser] = useContext(UserContext);
 
-  return (
+  return <>
     <div className="appContainer">
-      <FeatureController name='test'>
-        <div style={{position: 'absolute',bottom: 0,right: 0 ,zIndex: 9, backgroundColor: 'whitesmoke',padding: '8px',margin: '4px',borderRadius: '4px'}}>Test feature flags
-        <FeatureToggle />
+      {
+        user.type === "admin" ? (<Suspense fallback={<div>loading...</div>}><FeatureController2 name="test">
+          <div style={{position: 'absolute',bottom: 0,right: 0 ,zIndex: 9, backgroundColor: 'whitesmoke',padding: '8px',margin: '4px',borderRadius: '4px'}}>Test feature flags
+            <FeatureToggle />
+          </div>
+          </FeatureController2></Suspense>):null
+      }
+      <FeatureController name="test">
+        <div style={{
+          position: 'absolute',
+          bottom: 0,
+          right: 0 ,
+          zIndex: 9,
+          backgroundColor: 'whitesmoke',
+          padding: '8px',
+          margin: '4px',
+          borderRadius: '4px'}}
+        >
+          Test feature flags
+          <FeatureToggle />
         </div>
       </FeatureController>
       {user.isLogged ? (
@@ -25,7 +44,11 @@ export const Body: React.FunctionComponent = () => {
           </div>
         </>
       ) : null}
-      {user.isLogged ? <Home /> : <LoginForm isNavBar={false} />}
+      {user.isLogged 
+        ? <Suspense fallback={<div style={{backgroundColor: "red"}}>loading</div>}>
+            <Home />
+          </Suspense> 
+        : <LoginForm isNavBar={false} />}
     </div>
-  );
+  </>
 };

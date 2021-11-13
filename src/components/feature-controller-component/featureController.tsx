@@ -22,4 +22,4 @@ const FeatureController = ({ name, children, fallback = fallbackmsg } : FeatureP
     return fallback;
 };
 
-export {FeatureController};
+export default FeatureController;
