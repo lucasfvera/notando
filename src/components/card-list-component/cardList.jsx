@@ -1,5 +1,5 @@
 import React from 'react'
-import {Card, EmptyCard} from '../index.js'
+import {Card, EmptyCard} from '../index'
 import './cardList.css'
 
 const CardList = ({notes, removeNote, editNote}) => {
