@@ -1,0 +1,13 @@
+{
+  "compilerOptions":{
+     "baseUrl":".",
+     "paths":{
+        "@mytypes/*":[
+           "src/types/*"
+        ],
+        "@contexts/*":[
+           "src/contexts/*"
+        ]
+     }
+  }
+}

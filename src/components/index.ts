@@ -1,5 +1,5 @@
 export { Card } from "./card-component/card";
-export { Button } from "./button-component/button";
+// export { Button } from "./button-component/button";
 export { Form } from "./form-component/form";
 export { CardList } from "./card-list-component/cardList";
 export { EmptyCard } from "./empty-card-component/emptyCard";
@@ -18,8 +18,8 @@ export {
   FeatureFlagsContext,
   FeatureFlagsContextProvider,
 } from "../contexts/feature-flags-context/featureFlagsContext";
-export { Home } from "./home-component";
+export { default as Home} from "./home-component";
 export { Body } from "./body-component";
 export { UserLoginForm } from "./login-form-user-component";
-export { FeatureController } from "./feature-controller-component";
+export { default as FeatureController } from "./feature-controller-component";
 export { FeatureToggle } from './features-toggle-component'

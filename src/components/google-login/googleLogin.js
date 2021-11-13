@@ -9,7 +9,8 @@ const GoogleBtnLogin = ()=>{
 
   function onSignIn(googleUser) {
       var profile = googleUser.getBasicProfile();
-      setUser({name: profile.getName(), email: profile.getEmail(), isLogged: true });
+      var userType = "admin"
+      setUser({name: profile.getName(), email: profile.getEmail(), isLogged: true, type: userType });
       // console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
       // console.log('Name: ' + profile.getName());
       // console.log('Image URL: ' + profile.getImageUrl());

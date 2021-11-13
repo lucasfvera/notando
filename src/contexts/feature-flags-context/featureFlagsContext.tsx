@@ -47,7 +47,6 @@ const reducer = (features: FeaturesObject, action: ActionType) => {
                 ...features,
                 [action.name]: enabledFeature
             }
-            break;
         case 'disable':
             const disabledFeature = features[action.name];
             disabledFeature.enabled = false;
@@ -55,7 +54,6 @@ const reducer = (features: FeaturesObject, action: ActionType) => {
                 ...features,
                 [action.name]: disabledFeature
             }
-            break;
         default:
             return features;
     }

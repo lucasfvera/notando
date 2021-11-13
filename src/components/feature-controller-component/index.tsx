@@ -1,1 +1,1 @@
-export {FeatureController} from './featureController'
+export {default} from './featureController'
