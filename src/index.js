@@ -15,6 +15,12 @@ Sentry.init({
 	// We recommend adjusting this value in production
 	tracesSampleRate: 1.0,
 	// debug: true,
+	beforeSend(event, hint) {
+      // Check if it is an exception, and if so, show the report dialog
+      if (event.exception) {
+        Sentry.showReportDialog({ eventId: event.event_id });
+      }
+      return event;
     },
   });
 
