@@ -1,21 +1,27 @@
 # Notando webapp
 
-This project was created with npx create-react-app.
-It's an instance of react with a firebase database.
+This project was created with Vite.
+It's an instance of react with a Firebase database.
 
-The app basically is a notepad. You can add, edit and delete notes to keep track of anything you need.
+The app is a notepad. You can add, edit and delete notes to keep track of anything you need.
 
 
-## Available Scripts that come with react app
+## Running Locally
 
-In the project directory, you can run:
+Clone the repository and install the dependencies with any package manager:
 
-### `npm start`
+```sh
+    yarn install
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Then in the project directory, you can run:
+
+```sh
+    yarn start
+```
+
+This will run the app in the development mode.\
+Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
-
-This is the native react script to run the app locally.
