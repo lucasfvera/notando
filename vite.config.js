@@ -13,5 +13,8 @@ export default defineConfig(() => {
 			outDir: 'build',
 		},
 		plugins: [react(), tsconfigPaths()],
+		server: {
+			port: 3000,
+		},
 	};
 });
