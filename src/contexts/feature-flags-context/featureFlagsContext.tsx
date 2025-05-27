@@ -1,7 +1,7 @@
-import React, { createContext, useReducer, FunctionComponent } from 'react';
+import React, { createContext, useReducer, ReactNode } from 'react';
 
 type PropsOfType<Props, Type> = {
-	//@ts-ignore
+	//@ts-expect-error
 	[Property in Props]: Type;
 };
 
@@ -62,8 +62,10 @@ export const FeatureFlagsContext = createContext<
 	[FeaturesObject, React.Dispatch<ActionType>]
 >([initialFeatures, () => {}]);
 
-export const FeatureFlagsContextProvider: FunctionComponent = ({
+export const FeatureFlagsContextProvider = ({
 	children,
+}: {
+	children: ReactNode;
 }) => {
 	const [features, dispatch] = useReducer(reducer, initialFeatures);
 

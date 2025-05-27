@@ -17,7 +17,6 @@
 		"react-dom": "^17.0.1",
 		"react-google-login": "^5.2.2",
 		"vite": "^6.3.5",
-		"vitest": "^3.1.4",
 		"web-vitals": "^0.2.4"
 	},
 	"scripts": {
@@ -29,9 +28,14 @@
 	},
 	"devDependencies": {
 		"@craco/craco": "^6.2.0",
+		"@types/react": "^17.0.1",
+		"@types/react-dom": "^17.0.1",
+		"@typescript-eslint/eslint-plugin": "^8.32.1",
+		"@typescript-eslint/parser": "^8.32.1",
 		"craco-alias": "^3.0.1",
 		"jsdom": "^26.1.0",
-		"typescript": "^3.0.0"
+		"typescript": "^5.8.3",
+		"vitest": "^3.1.4"
 	},
 	"eslintConfig": {
 		"extends": [
