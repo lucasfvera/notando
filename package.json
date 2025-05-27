@@ -10,19 +10,20 @@
 		"@testing-library/jest-dom": "^5.11.6",
 		"@testing-library/react": "^11.2.2",
 		"@testing-library/user-event": "^12.6.0",
+		"@vitejs/plugin-react": "^4.5.0",
 		"cypress": "^6.2.1",
 		"firebase": "^10.5.0",
 		"react": "^17.0.1",
 		"react-dom": "^17.0.1",
 		"react-google-login": "^5.2.2",
-		"react-scripts": "4.0.1",
+		"vite": "^6.3.5",
 		"web-vitals": "^0.2.4"
 	},
 	"scripts": {
-		"start": "craco start",
-		"build": "craco build",
+		"start": "vite",
+		"build": "vite build",
+		"serve": "vite preview",
 		"test": "craco test",
-		"eject": "react-scripts eject",
 		"cy": "./node_modules/.bin/cypress open"
 	},
 	"devDependencies": {
