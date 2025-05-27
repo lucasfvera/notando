@@ -4,7 +4,7 @@ import {
 	FeatureFlagsContextProvider,
 	LoadingContext,
 	Body,
-} from './components';
+} from '@/components';
 
 function App() {
 	const [loading, setLoading] = useContext(LoadingContext);

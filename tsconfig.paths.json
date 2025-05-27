@@ -1,13 +1,10 @@
 {
-  "compilerOptions":{
-     "baseUrl":".",
-     "paths":{
-        "@mytypes/*":[
-           "src/types/*"
-        ],
-        "@contexts/*":[
-           "src/contexts/*"
-        ]
-     }
-  }
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"@mytypes/*": ["./src/types/*"],
+			"@contexts/*": ["./src/contexts/*"],
+			"@/*": ["./src/*"]
+		}
+	}
 }
