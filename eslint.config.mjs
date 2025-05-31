@@ -7,7 +7,7 @@ import tseslint from 'typescript-eslint';
 
 export default tseslint.config([
 	{
-		files: ['**/*.{ts,tsx}'],
+		files: ['**/*.{js,jsx,ts,tsx}'],
 		settings: {
 			react: { version: 'detect' },
 		},
