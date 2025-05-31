@@ -25,6 +25,7 @@
 		"web-vitals": "^0.2.4"
 	},
 	"devDependencies": {
+		"@eslint/js": "^9.28.0",
 		"@testing-library/jest-dom": "^5.11.6",
 		"@testing-library/react": "^11.2.2",
 		"@testing-library/user-event": "^12.6.0",
@@ -32,8 +33,12 @@
 		"@types/react-dom": "^17.0.1",
 		"@typescript-eslint/eslint-plugin": "^8.32.1",
 		"@typescript-eslint/parser": "^8.32.1",
+		"eslint": "^9.27.0",
+		"eslint-plugin-react": "^7.37.5",
 		"jsdom": "^26.1.0",
 		"typescript": "^5.8.3",
+		"typescript-eslint": "^8.33.0",
+		"vite-plugin-eslint": "^1.8.1",
 		"vite-tsconfig-paths": "^5.1.4",
 		"vitest": "^3.1.4"
 	},
